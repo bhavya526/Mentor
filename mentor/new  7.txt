@@ -1,0 +1,233 @@
+ <div style='background-color:#F8F9FA;height:auto;float:left;width:55%;border:1px solid gray;border-color:#DCDCDC ;margin-left:30px;margin-right:-60px'>
+		         <div style='background-color:#3575D3;border-radius:10%;font-weight:bold;font-size:28px;color:white;width:104%;height:50px;margin-left:-12px'>
+				     <span style='margin-left:200px;'>  Examination 2021  </span>
+				 </div>
+				 <br><br>
+			  <div  style='background-color:#a5a5a5; height:auto;margin-left:-12px;width:104%'>
+			      <table style=''>
+				        <tr><td></td></tr>
+						
+			            <tr style='border-bottom:1px solid black; border-color:#DCDCDC'>
+						   <td style='font-weight:bold;height:45px;color:white'>&nbsp &nbsp Examination Forms
+						   <img src='admin images/add.png' id='btn1' style='width:15px;height:15px;margin-left:417px'></td>
+						</tr>
+						<tr id="green" style=';background-color:#F8F9FA;width:625px'><td>
+						     <?php
+	                       
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from examformupload order by Sno DESC");
+	                             
+	                             echo "<br>";
+								 echo "<ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "<li><a href='application.php' style='color:blue;font-weight:bold;margin-left:20px'> $row[1]</a></li><br>";
+	                               }
+								   echo "<ul>";
+								   echo "<br>";
+	                            ?>      
+						
+						</td></tr>
+						 <tr style='border-bottom:1px solid black; border-color:#DCDCDC'>
+						   <td style='font-weight:bold;;height:45px;color:white'>&nbsp &nbsp Exam Datesheet
+						   <img src='admin images/add.png' id='btn2' style='width:15px;height:15px;margin-left:442px'></td>
+						</tr>
+						<tr id="orange" style='display:none;background-color:#F8F9FA;width:629px'><td>
+						     <?php
+	 
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from admitcards");
+	 
+	                               echo "<br>";
+								   echo "<ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "<li><a href='application.php' style='color:blue;font-weight:bold;margin-left:20px'> $row[1]</a></li><br>";
+	                               }
+								   echo "<ul>";
+								   echo "<br>";
+	                            ?>      
+						
+						</td></tr>
+						<tr style='border-bottom:1px solid black; border-color:#DCDCDC'>
+						   <td style='font-weight:bold;;height:45px;color:white'>&nbsp &nbsp Admit Cards
+						   <img src='admin images/add.png' id='btn3' style='width:15px;height:15px;margin-left:474px'></td>
+						</tr>
+						<tr id="blue" style=';background-color:#F8F9FA;width:625px'><td>
+						     <?php
+	 
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from admitcards");
+	 
+	                              echo "<br>";
+								  echo "<ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "<li><a href='application.php' style='color:blue;font-weight:bold;margin-left:20px'> $row[1]</a></li><br>";
+	                               }
+								   echo "</ul>";
+								   echo "<br>";
+	                            ?>      
+						
+						</td></tr>
+						<tr style='border-bottom:1px solid black; border-color:#DCDCDC'>
+						   <td style='font-weight:bold;;height:45px;color:white'>&nbsp &nbsp Results
+						   <img src='admin images/add.png' id='btn4' style='width:15px;height:15px;margin-left:510px'></td>
+						   
+						</tr>
+						<tr id="white" style='display:none;background-color:#F8F9FA;width:625px'><td>
+						     <?php
+	 
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from resultupload order by Id DESC");
+	 
+	                            echo "<br>";
+								echo "<ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "  <li><a href='application.php' style='color:blue;font-weight:bold;margin-left:20px'> $row[1]</a></li><br>";
+	                               }
+								   echo "</ul>";
+								   echo "<br>";
+	                            ?>      
+						
+						</td></tr>
+		          </table>
+              </div>
+      </div>
+			  
+			  
+		 
+		  
+		  <div style='float:right;width:45%;margin-top:85px;margin-left:110px;margin-right:-200px'>
+		    <table style='width:390px'>
+		        <tr style='border-bottom:1px solid black;background-color:#a5a5a5; border-color:#DCDCDC'>
+						   <td style='font-weight:bold;;height:45px;color:white'>&nbsp &nbsp Notifications
+						   <img src='admin images/add.png' id='btn8' style='width:15px;height:15px;margin-left:227px'></td>
+						</tr>
+						<tr id="pink" style=';background-color:#F8F9FA;width:390px'><td>
+						     <?php
+	 
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from norifications order by Id DESC");
+	 
+	                            echo "<br>";
+								echo "<marquee direction=up><ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "  <p style=';color:black;;margin-left:-10px'> $row[1]</p>";
+	                               }
+								   echo "</ul></marquee>";
+								   echo "<br>";
+	                            ?>      
+						
+						</td></tr>
+						
+					</table>	
+					
+		  
+		  </div>
+		  
+         
+        </div>
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 <div style='float:right;width:45%;margin-top:85px;margin-left:110px;margin-right:-200px'>
+		    <table style='width:390px'>
+		        <tr style='border-bottom:1px solid black;background-color:#a5a5a5; border-color:#DCDCDC'>
+						   <td style='font-weight:bold;;height:45px;color:white'>&nbsp &nbsp Notifications
+						   <img src='admin images/add.png' id='btn8' style='width:15px;height:15px;margin-left:227px'></td>
+						</tr>
+						<tr id="pink" style=';background-color:#F8F9FA;width:390px'><td>
+						     <?php
+	 
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from norifications order by Id DESC");
+	 
+	                            echo "<br>";
+								echo "<marquee direction=up><ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "  <p style=';color:black;;margin-left:-10px'> $row[1]</p>";
+	                               }
+								   echo "</ul></marquee>";
+								   echo "<br>";
+	                            ?>      
+						
+						</td></tr>
+						
+					</table>	
+					
+		  
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  <div style='float:left'>
+			   <img src='userimages/examfill.png' id='btn1' style='width:940px;height:350px;margin-left:-150px'>
+			   
+			  <div id="green" style='display:none;;margin-top:-170px;width:505px;margin-left:-30px'>
+						     <?php
+	                       
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from examformupload order by Sno DESC");
+	                             
+	                             echo "<br>";
+								 echo "<ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "<li><a href='application.php' style='color:blue;;margin-left:15px'> $row[1]</a></li><br>";
+	                               }
+								   echo "<ul>";
+								   echo "<br>";
+	                            ?>      
+						
+						</div>
+					</div>
+					
+					
+					<div style='float:left'>
+			   <img src='userimages/examfill.png' id='btn1' style='width:940px;height:350px;margin-left:-150px'>
+			   
+			  <div id="green" style='display:none;;margin-top:-170px;width:505px;margin-left:-30px'>
+						     <?php
+	                       
+	                              $con=mysqli_connect("localhost","root","","examport");
+			                      $r=mysqli_query($con,"select * from examformupload order by Sno DESC");
+	                             
+	                             echo "<br>";
+								 echo "<ul>";
+	                            while($row=mysqli_fetch_array($r))
+			                     {
+			                        echo "<li><a href='application.php' style='color:blue;;margin-left:15px'> $row[1]</a></li><br>";
+	                               }
+								   echo "<ul>";
+								   echo "<br>";
+	                            ?>      
+						
+						</div>
+					</div>

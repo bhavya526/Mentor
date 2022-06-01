@@ -1,0 +1,159 @@
+<?php
+session_start();
+
+$user=$_SESSION["userteach"];
+$degree=$_SESSION["degreeteach"];
+$sem=$_SESSION["courseteach"];
+
+
+
+
+?>
+
+<head>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+<script>
+   $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} )
+</script>
+
+<div style='width:125%;margin-left:-125px;height:40px;background-color:#f5f5f5;margin-top:-4px'>
+          <a href='teacherhome.php'><input type='button' value='Home' style='margin-top:6px;background-color:#f5f5f5;margin-left:10px;border:none;focus:none;outline:none' ></a>
+		  <a href='teacherupload.php'><input type='button' value='Upload Marks' style=';background-color:#f5f5f5;margin-top:6px;margin-left:10px;border:none;focus:none;outline:none' ></a>
+		  <a href='teacherupload.php'><input type='button' value='Update' style=';background-color:#f5f5f5;margin-top:6px;margin-left:10px;border:none;focus:none;outline:none'  ></a>
+	   </div>
+	   
+	   <?php
+	          
+			   
+			   
+			   if($degree=='BCA' && $sem=='I SEM' )
+			   {
+			      $serial=101;
+				}
+				
+				if($degree=='BCA' && $sem=='II SEM' )
+			   {
+			      $serial=201;
+				}
+				
+				if($degree=='BCA' && $sem=='III SEM' )
+			   {
+			      $serial=301;
+				}
+				
+				if($degree=='BCA' && $sem=='IV SEM' )
+			   {
+			      $serial=401;
+				}
+				
+				if($degree=='BCA' && $sem=='V SEM' )
+			   {
+			      $serial=501;
+				}
+				
+				if($degree=='BCA' && $sem=='VI SEM' )
+			   {
+			      $serial=601;
+				}
+				
+				if($degree=='MCA' && $sem=='I SEM' )
+			   {
+			      $serial=1001;
+				}
+				
+				if($degree=='MCA' && $sem=='II SEM' )
+			   {
+			      $serial=1101;
+				}
+				
+				if($degree=='MCA' && $sem=='III SEM' )
+			   {
+			      $serial=1201;
+				}
+				
+				if($degree=='MCA' && $sem=='IV SEM' )
+			   {
+			      $serial=1301;
+				}
+				
+				if($degree=='MCA' && $sem=='V SEM' )
+			   {
+			      $serial=1401;
+				}
+				
+				if($degree=='MCA' && $sem=='VI SEM' )
+			   {
+			      $serial=1501;
+				}
+			 
+			   
+			   
+			   
+	   ?>
+	      <input type='text' value='<?php echo $_SESSION['degreeteach'] ?>' size= 6 name='deg' style='margin-left:42%;border:none;font-weight:bold;focus:none;outline:none'>
+		  <input type='text' value='<?php echo $_SESSION['courseteach'] ?>' size= 6  name='sem' style='border:none;focus:none;outline:none;font-weight:bold;'>
+	  <br><br>
+	  
+	   <table id="example" class="display" style='width:96%;height:auto' >
+    <thead>
+        <tr>
+            <th>RollNo</th>
+            <th>Name</th>
+			<th width=20px>Sub1</th>
+			<th>Sub2</th>
+			<th>Sub3</th>
+			<th>Sub4</th>
+			<th>Sub5</th>
+			<th>Sub6</th>
+			<th>Sub1</th>
+			<th>Sub3</th>
+			<th>Sub4</th>
+			<th>Sub5</th>
+			<th>Grade</th>
+			<th>Total</th>
+            
+        </tr>
+    </thead><tbody>
+	<?php
+	     $con=mysqli_connect("localhost","root","","examport");
+			   $r=mysqli_query($con,"select * from examform  where coursess='$degree' and sems='$sem'");
+			   
+			   
+			   
+			   
+	     while($row=mysqli_fetch_array($r))
+       { 
+	        $s=mysqli_query($con,"select * from subject where course='$degree' and Sem='$sem'");
+	        $rew=mysqli_fetch_array($s);
+	
+          echo "
+               <tr>
+                   <td>$serial</td>
+                   <td>$row[1]</td>
+				   	<td>$rew[3]</td>
+					<td>$rew[4]</td>
+					<td>$rew[5]</td>
+					<td>$rew[6]</td>
+					<td>$rew[7]</td>
+					<td>$rew[8]</td>";	
+            echo "</tr>";
+                      $serial++;          
+	     }
+	   
+	?>
+	</tbody>
+</table>

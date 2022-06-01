@@ -1,0 +1,42 @@
+ <B style='margin-left:10px;;font-weight:bold;font-size:18px'>Examination Forms</B>
+               <img src='admin images/add.png' style='width:15px;height:15px;margin-left:410px;margin-top:10px' id='btn1' onclick="">
+                
+			 <div id="green" style='display:none;background:#F8F9FA;color:blue;width:100%;height:auto;;margin-top:20px'>
+                     <?php
+	 
+	             $con=mysqli_connect("localhost","root","","examport");
+			     $r=mysqli_query($con,"select * from admitcards");
+	 
+	 
+	                 while($row=mysqli_fetch_array($r))
+			          {
+			             echo "<a href='application.php' style='color:blue;font-weight:bold;margin-left:20px'> $row[1]</a><br>";
+	                  }
+	                ?>
+            </div>
+			
+			
+             <B style='margin-left:10px;font-weight:bold;font-size:18px'>Exam Datesheet</B>
+            <img src='admin images/add.png' style='width:15px;height:15px;margin-left:599px;margin-top:-49px' id='btn2' onclick="">
+            <div id="orange" style='display:none;background:#F8F9FA;color:blue;width:100%;height:auto;margin-top:1px'>
+                     Bhavya SHarma<br>
+	                 Anuta<br>
+	                 Bhavhsdjh
+           </div>
+		   
+		    <B style='margin-left:10px;font-weight:bold;font-size:18px;'>Admit Cards</B>
+            <img src='admin images/add.png' style='width:15px;height:15px;margin-left:599px;margin-top:-49px' id='btn3' onclick=""/>
+            <div id="blue" style='display:none;background:#F8F9FA;color:blue;width:100%;height:auto;margin-top:1px'>
+                     Bhavya SHarma<br>
+	                 Anuta<br>
+	                 Bhavhsdjh
+            </div>
+			
+
+			<B style='margin-left:10px;font-weight:bold;font-size:18px;'>Results</>
+            <img src='admin images/add.png' style='width:15px;height:15px;margin-left:599px;margin-top:-49px' id='btn4' onclick=""/>
+            <div id="white" style='display:none;background:#F8F9FA;color:blue;width:100%;height:auto;margin-top:1px'>
+                     Bhavya SHarma<br>
+	                 Anuta<br>
+	                 Bhavhsdjh
+            </div>
